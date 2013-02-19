@@ -1,0 +1,17 @@
+<project name="testng.delay.demo" default="test">
+
+    <taskdef resource="testngtasks" classpath="lib/testng-6.8.jar"/>
+
+    <target name="clean">
+        <delete dir="test-output" />
+        <delete dir="build" />
+    </target>
+
+    <target name="test">
+        <mkdir dir="build" />
+        <javac srcdir="test" destdir="build" classpath="lib/testng-6.8.jar" />
+        <testng classpath="build">
+            <xmlfileset dir="." includes="testng.xml" />
+        </testng>
+    </target>
+</project>
